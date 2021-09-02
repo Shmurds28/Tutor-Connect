@@ -9,7 +9,6 @@ namespace Tutor_Connect.Models
     [Table("Applicant")]
     public partial class Applicant
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int applicantId { get; set; }
 
         [Required]
