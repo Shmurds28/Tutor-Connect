@@ -1,0 +1,146 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    /*background-color: #F3F3F3;*/
+}
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+.heading {
+    text-align: center;
+    color: #1C9BE8;
+    font-weight: bold;
+    font-size: 29px;
+    line-height: 44px;
+    font-family: Arial;
+}
+
+.registration-form {
+    margin-right: 15%;
+    margin-left: 25%;
+    /*text-align: center;*/
+}
+
+.login-form {
+    margin-left: 40%;
+    margin-right: 15%;
+}
+
+.control-label {
+    font-size: 16px;
+    line-height: 24px;
+    color: #888888;
+    margin-right: 10px;
+}
+
+.form-group {
+    margin: 15px;
+}
+
+.form-control {
+    padding: 15px;
+    /*padding-bottom: 1px;*/
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #3332;
+    margin-right: 25px;
+    width: 300px;
+    outline: none !important;
+}
+
+    .form-control:focus {
+        border: 1px solid #1C9BE8;
+    }
+
+    .form-control::placeholder {
+        font-size: 12px;
+    }
+
+.btn-register, .btn-cancel, .btn-login {
+    font-size: 14px;
+    line-height: 16px;
+    /*display:inline;*/
+    border-radius: 5px;
+    width: 330px;
+    border-color: #CFD8DC;
+    color: white;
+    margin-right: 30px;
+    padding: 15px;
+}
+
+.btn-register, .btn-login {
+    background-color: #1C9BE8;
+}
+
+.form-group.buttons {
+    margin-right: 0;
+}
+
+.btn-cancel {
+    background-color: #FF888C;
+}
+
+.login-head {
+    font-size: 33px;
+    line-height: 47px;
+    color: #1C9BE8;
+}
+
+.login-form .form-control {
+    padding: 15px;
+    width: 300px;
+    outline: none !important;
+}
+
+.login-form .btn-login {
+    width: 330px;
+    margin-right: 0;
+}
+
+.form-group p {
+    display: inline;
+}
+
+.options-link {
+    margin-top: 15px;
+    display: flex;
+    align-content: space-evenly;
+}
+
+    .options-link a {
+        text-decoration: none;
+        margin: 20px;
+        color: #1C9BE8;
+        font-weight: 600;
+        font-size: 12px;
+    }
+
+        .options-link a:hover, .login-link a:hover {
+            text-decoration: underline;
+        }
+
+.login-link {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+    .login-link a {
+        text-decoration: none;
+        margin: 0px;
+        color: #1C9BE8;
+        font-weight: 600;
+    }

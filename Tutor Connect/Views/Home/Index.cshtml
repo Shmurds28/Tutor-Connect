@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (Session["logged"] != null)
+{
+    <h2>Logged In</h2>
+}
+else
+{
+    <h2>Not Logged in</h2>
+}
+
