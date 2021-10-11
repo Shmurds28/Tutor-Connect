@@ -71,13 +71,6 @@ namespace Tutor_Connect.Models
                 .Property(e => e.StudNumber)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Student>()
-                .Property(e => e.Password)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Tutor>()
-                .Property(e => e.PhoneNumber)
-                .IsFixedLength();
 
             modelBuilder.Entity<TutorModule>()
                 .Property(e => e.studNumber)

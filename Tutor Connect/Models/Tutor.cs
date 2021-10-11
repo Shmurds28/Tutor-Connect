@@ -16,25 +16,5 @@ namespace Tutor_Connect.Models
         [StringLength(50)]
         public string tutorType { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Firstname { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Surname { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Email { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string password { get; set; }
-
-        [StringLength(10)]
-        public string PhoneNumber { get; set; }
-
-        public string Image { get; set; }
     }
 }

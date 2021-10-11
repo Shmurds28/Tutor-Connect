@@ -17,7 +17,7 @@ namespace Tutor_Connect.Models
         [StringLength(50)]
         public string fieldOfStudy { get; set; }
 
-        public int yearOfStudy { get; set; }
+        public string yearOfStudy { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -31,8 +31,7 @@ namespace Tutor_Connect.Models
         [StringLength(50)]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [StringLength(50)]
         public string Password { get; set; }
 
         [StringLength(50)]

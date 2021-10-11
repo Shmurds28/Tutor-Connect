@@ -14,7 +14,18 @@ namespace Tutor_Connect.Controllers
         // GET: Tutor
         public ActionResult Index()
         {
-            return View();
+
+            List<Student> list = new List<Student>();
+
+            var tutors = db.Tutors.ToList();
+            
+            foreach(Tutor tutor in tutors)
+            {
+                Student student = db.Students.Find(tutor.TutorId.ToString());
+                list.Add(student);
+            }
+
+            return View(list);
         }
 
         // GET: Tutor/Details/5

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Tutor_Connect.Models;
 using System.Web.Security;
+using System.Data.Entity;
 
 namespace Tutor_Connect.Controllers
 {
@@ -15,7 +16,7 @@ namespace Tutor_Connect.Controllers
         // GET: Student
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Home");
+            return View(db.Students.ToList());
         }
 
         // GET: Student/Register
@@ -41,6 +42,16 @@ namespace Tutor_Connect.Controllers
                     return View();
                 }
 
+                //Student student = new Student();
+                //student.StudNumber = newStudent.StudNumber;
+                //student.Surname = newStudent.Surname;
+                //student.PhoneNumber = newStudent.PhoneNumber;
+                //student.Firstname = newStudent.Firstname;
+                //student.fieldOfStudy = newStudent.fieldOfStudy;
+                //student.Email = newStudent.Email;
+                //student.yearOfStudy = newStudent.yearOfStudy;
+                //student.Image = newStudent.Image;
+
                 db.Students.Add(newStudent);
                 db.SaveChanges();
 
@@ -54,28 +65,41 @@ namespace Tutor_Connect.Controllers
                 ModelState.Clear();
                 return RedirectToAction("Index", "Home");
             }
-            catch
+            catch(Exception e)
             {
-                ViewBag.NotAdded = "An error occurred";
+                ViewBag.NotAdded = e.Message.Length;
                 return View();
             }
         }
 
         // GET: Student/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
-            return View();
+            if (Session["logged"] == null)
+                return RedirectToAction("Login", "User");
+
+            int id = Convert.ToInt32(Session["LoggedUserId"]);
+            User user = db.Users.Find(id);
+            if (user == null)
+                return HttpNotFound();
+
+            Student studentToEdit = db.Students.Find(user.username);
+            if (studentToEdit == null)
+                return RedirectToAction("Index");
+            return View(studentToEdit);
         }
 
         // POST: Student/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Student studentToEdit)
         {
             try
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                db.Entry(studentToEdit).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Profile", "User");
             }
             catch
             {
@@ -83,26 +107,17 @@ namespace Tutor_Connect.Controllers
             }
         }
 
-        // GET: Student/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Student/Profile/5
+        public ActionResult viewProfile(String id)
         {
-            return View();
+            Student studentProfile = db.Students.Where(n => n.StudNumber == id).FirstOrDefault();
+            if(studentProfile == null)
+            {
+                return HttpNotFound();
+            }
+            return View(studentProfile);
         }
 
-        // POST: Student/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+      
     }
 }

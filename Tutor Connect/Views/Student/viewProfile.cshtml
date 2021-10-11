@@ -1,0 +1,75 @@
+﻿@model Tutor_Connect.Models.Student
+
+@{
+    ViewBag.Title = "viewProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>viewProfile</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fieldOfStudy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fieldOfStudy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yearOfStudy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yearOfStudy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StudNumber }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
