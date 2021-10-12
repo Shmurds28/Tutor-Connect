@@ -12,7 +12,7 @@ namespace Tutor_Connect.Controllers
 
         DataModel db = new DataModel();
         // GET: Tutor
-        public ActionResult Index()
+        public ActionResult Index(string module)
         {
 
             List<Student> list = new List<Student>();
@@ -22,10 +22,26 @@ namespace Tutor_Connect.Controllers
             foreach(Tutor tutor in tutors)
             {
                 Student student = db.Students.Find(tutor.TutorId.ToString());
-                list.Add(student);
+
+                TutorModule tutorModule = db.TutorModules.Where(x => x.studNumber == student.StudNumber && x.moduleCode == module).FirstOrDefault();
+
+                List<TutorModule> tutorModules = new List<TutorModule>();
+
+                tutorModules = db.TutorModules.ToList();
+                ViewBag.tutorModules = tutorModules;
+
+                if(tutorModule != null || module == null || module == "")
+                    list.Add(student);
+
+
             }
 
             return View(list);
+        }
+
+        public ActionResult searchTutor()
+        {
+            return View();
         }
 
         // GET: Tutor/Details/5

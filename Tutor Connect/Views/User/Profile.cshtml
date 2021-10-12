@@ -5,70 +5,43 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Profile</h2>
+@*<h2 class="heading">Profile</h2>*@
 
-<div>
-    <h4>Student</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.fieldOfStudy)
-        </dt>
+<div class="profile-containter">
+    <i class="fas fa-user-circle fa-10x"></i>
+    <h1>
+        @Html.DisplayFor(model => model.Firstname)  @Html.DisplayFor(model => model.Surname)
+    </h1>
+    <p>
+        @Html.DisplayFor(model => model.yearOfStudy) -  @Html.DisplayFor(model => model.fieldOfStudy)
+    </p>
+    <p>
+        @Html.DisplayFor(model => model.Email) | @Html.DisplayFor(model => model.PhoneNumber)
+    </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.fieldOfStudy)
-        </dd>
+    <div class="modules">
+        <ul>
+            @if (ViewBag.tutorModules != null)
+            {
+                foreach (Tutor_Connect.Models.TutorModule tutorModule in ViewBag.tutorModules)
+                {
+                    if (tutorModule.studNumber == Model.StudNumber)
+                    {
+                        <li>
+                            <i class="fas fa-check"></i>
+                            @tutorModule.moduleCode
+                        </li>
+                    }
+                }
+            }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.yearOfStudy)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.yearOfStudy)
-        </dd>
+        </ul>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Firstname)
-        </dt>
+    <p>
+        @Html.ActionLink("Edit Personal information", "Edit", "Student")
+    </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Firstname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Surname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Surname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit Personal information", "Edit", "Student") |
-</p>
+

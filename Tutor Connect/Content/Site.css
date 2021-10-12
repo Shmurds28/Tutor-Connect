@@ -1,8 +1,10 @@
-﻿body {
+﻿@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
     color: #333;
-    font-family: Arial, sans-serif;
+    font-family: "Open Sans", sans-serif;
     /*background-color: #F3F3F3;*/
 }
 
@@ -18,6 +20,8 @@ select,
 textarea {
     max-width: 280px;
 }*/
+
+
 
 .heading {
     text-align: center;
@@ -50,7 +54,7 @@ textarea {
     margin: 15px;
 }
 
-.form-control {
+.form-control, .filter-fields input[type="text"] {
     padding: 15px;
     /*padding-bottom: 1px;*/
     font-size: 16px;
@@ -61,13 +65,13 @@ textarea {
     outline: none !important;
 }
 
-    .form-control:focus {
-        border: 1px solid #1C9BE8;
-    }
+.form-control:focus {
+    border: 1px solid #1C9BE8;
+}
 
-    .form-control::placeholder {
-        font-size: 12px;
-    }
+.form-control::placeholder {
+    font-size: 12px;
+}
 
 .btn-register, .btn-cancel, .btn-login {
     font-size: 14px;
@@ -81,7 +85,7 @@ textarea {
     padding: 15px;
 }
 
-.btn-register, .btn-login {
+.btn-register, .btn-login, .btn-search {
     background-color: #1C9BE8;
 }
 
@@ -120,17 +124,17 @@ textarea {
     align-content: space-evenly;
 }
 
-    .options-link a {
-        text-decoration: none;
-        margin: 20px;
-        color: #1C9BE8;
-        font-weight: 600;
-        font-size: 12px;
-    }
+.options-link a {
+text-decoration: none;
+margin: 20px;
+color: #1C9BE8;
+font-weight: 600;
+font-size: 12px;
+}
 
-        .options-link a:hover, .login-link a:hover {
-            text-decoration: underline;
-        }
+.options-link a:hover, .login-link a:hover {
+    text-decoration: underline;
+}
 
 .login-link {
     text-align: center;
@@ -138,9 +142,145 @@ textarea {
     font-weight: 500;
 }
 
-    .login-link a {
-        text-decoration: none;
-        margin: 0px;
-        color: #1C9BE8;
-        font-weight: 600;
-    }
+.login-link a {
+    text-decoration: none;
+    margin: 0px;
+    color: #1C9BE8;
+    font-weight: 600;
+}
+
+/*Profile page styling*/
+.profile-containter {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #ededed;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 15px;
+    border-radius:8px;
+}
+
+.profile-containter p {
+    font-size: 23px;
+    margin:5px;
+}
+
+.profile-containter h1 {
+    font-size: 45px;
+    margin-bottom:8px;
+}
+
+.profile-containter p a, .tutor-containter span a {
+    color: white;
+    background-color: #1C9BE8;
+    text-decoration:none;
+    border-radius:10px;
+    padding: 10px;
+   
+}
+
+.profile-containter p:last-of-type{
+    margin:35px;
+}
+
+.fa-user-circle{
+    color:white;
+}
+
+.tutors-container{
+    margin-left:25%;
+    margin-right:25%;
+}
+
+.tutor-containter {
+    display: flex;
+    background-color: #ededed;
+    border-radius:8px;
+    margin-bottom:20px;
+    padding:30px;
+    padding-bottom:10px;
+}
+
+.tutor-containter div{
+    margin:15px;
+}
+
+.tutor-containter div span {
+    width:1000px;
+}
+
+.tutor-containter p{
+    font-size: 23px;
+}
+
+.tutor-containter span a {
+    width: 500px;
+}
+
+.filter-fields{
+   text-align:center;
+   margin:5px;
+   margin-left:0;
+}
+
+.filter-fields label{
+    position:relative;
+    margin-right:0;
+    padding:0;
+}
+
+.filter-fields input[type="text"]:after {
+    content: 'Enter your number';
+    position: absolute;
+    left: 5px;
+    top: 0;
+    color: red;
+}
+
+.filter-fields input[type="text"] {
+    position: relative;
+    margin-right:0;
+}
+
+.filter-fields input[type="text"]:focus{
+    z-index:10;
+}
+
+.modules{
+    display:flex;
+    align-content:center;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.modules ul{
+    list-style:none;
+}
+
+.fa-check{
+    color:#1C9BE8;
+}
+
+.btn-search {
+    font-size: 14px;
+    line-height: 16px;
+    border-radius: 5px;
+    border-color: #CFD8DC;
+    color: white;
+    margin-left: 0;
+    padding: 15px;
+}
+
+.profile-containter .modules ul{
+    display:flex;
+    justify-content:space-between;
+}
+
+.profile-containter .modules li{
+    margin-right:15px;
+}

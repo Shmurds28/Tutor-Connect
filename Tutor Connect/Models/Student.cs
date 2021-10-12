@@ -37,6 +37,6 @@ namespace Tutor_Connect.Models
         [StringLength(50)]
         public string PhoneNumber { get; set; }
 
-        public string Image { get; set; }
+        public byte[] Image { get; set; }
     }
 }

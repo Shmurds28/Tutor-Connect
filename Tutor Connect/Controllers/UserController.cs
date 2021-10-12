@@ -33,10 +33,16 @@ namespace Tutor_Connect.Controllers
             if (user == null)
                 return HttpNotFound();
 
-            Student studentToEdit = db.Students.Find(user.username);
-            if (studentToEdit == null)
+            Student student = db.Students.Find(user.username);
+            if (student == null)
                 return RedirectToAction("Index");
-            return View(studentToEdit);
+
+            List<TutorModule> tutorModules = new List<TutorModule>();
+
+            tutorModules = db.TutorModules.ToList();
+            ViewBag.tutorModules = tutorModules;
+
+            return View(student);
         }
 
         // GET: User/Edit/5
@@ -87,6 +93,9 @@ namespace Tutor_Connect.Controllers
                     FormsAuthentication.SetAuthCookie(user.username, true);
                     Session["logged"] = true;
                     Session["LoggedUserId"] = getUser.userId.ToString();
+
+                    if (user.type == "tutor")
+                        Session["isTutor"] = true;
 
                     if (!string.IsNullOrEmpty(returnUrl))
                         return Redirect(returnUrl);

@@ -9,7 +9,8 @@ namespace Tutor_Connect.Models
     [Table("TutorModule")]
     public partial class TutorModule
     {
-        [Key]
+        public int TutorModuleId { get; set; }
+
         [StringLength(10)]
         public string studNumber { get; set; }
 
