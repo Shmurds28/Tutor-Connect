@@ -1,0 +1,59 @@
+﻿@model Tutor_Connect.Models.TutorModule
+
+@{
+
+    string str = (string)ViewData["Invalid"];
+    string bm = (string)ViewData["deptment"];
+
+}
+<h2 class="heading">APPROVE TUTOR</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="registration-form">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.moduleCode, htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+        @Html.EditorFor(model => model.studNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "module code" } })
+        @Html.ValidationMessageFor(model => model.studNumber, "", new { @class = "text-danger" })
+
+    </div>
+
+
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.moduleName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+        @Html.EditorFor(model => model.passmark, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter passmark" } })
+        @Html.ValidationMessageFor(model => model.passmark, "", new { @class = "text-danger" })
+
+    </div>
+    <p style="color:red">
+        @str
+
+    </p>
+    <p style="color:red">
+        @bm
+
+    </p>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Approve" class="btn-register" style="width: 150px; " />
+            <span class="btn-cancel" style="width: 150px; text-align: center; font-weight: 700;color: white;">
+
+                @Html.ActionLink("Decline", "Index", "", new
+           {
+               style = "text-decoration:none; color:white",
+               @class = "btn-cancel"
+           })
+            </span>
+
+        </div>
+    </div>
+</div>
+}
+

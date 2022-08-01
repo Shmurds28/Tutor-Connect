@@ -20,6 +20,7 @@ namespace Tutor_Connect.Models
         [StringLength(10)]
         public string studNumber { get; set; }
 
+        public string Date { get; set; }
         public int tutorId { get; set; }
     }
 }

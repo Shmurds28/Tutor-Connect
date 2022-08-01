@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Tutor_Connect.Models.Tutor>
+
+@{
+    ViewBag.Title = "ListOfTutors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 class="heading">LIST TUTORS</h2>
+<dv>
+
+
+    <table class="table" style=" margin:auto; margin-top:3em; column-gap:3em; border:none; width :1000px;
+       table-layout:fixed;overflow-y:auto ">
+        <tr style="background:#b200ff; border:solid">
+            <th> TUTOR NUMBER</th>
+            <th>TUTOR TYPE </th>
+           
+
+            <th></th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr style="border-collapse:collapse;border:1px;margin-top:3em;font-size:14px;text-align:center;background:#CFD8DC">
+                <td>
+                    @Html.DisplayFor(modelItem => item.TutorId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tutorType)
+                </td>
+                
+                <td>
+                    <!--<div class="form-group">-->
+                    @*@using (Html.BeginForm("",""))
+                        {
+                            <input type="submit" value="Verify Applicant" class="btn-register" />
+                        }*@
+
+
+                    @*@using (Html.BeginForm("verify", "Home", FormMethod.Get))
+                                {
+
+                             <a href="@Url.Action("verify","Home",new { id = item.StudNumber })">verify student</a>
+
+                        }*@
+
+
+                    @Html.ActionLink("review", "makeReviewTutor", new { id = item.TutorId })
+                </td>
+            </tr>
+
+        }
+
+
+    </table>
+
+</dv>

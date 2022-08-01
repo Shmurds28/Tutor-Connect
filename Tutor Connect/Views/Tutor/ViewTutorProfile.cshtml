@@ -1,0 +1,64 @@
+﻿@model Tutor_Connect.Models.Student
+
+@{
+    ViewBag.Title = "ViewTutorProfile";
+    var photopath = "~/Content/images/" + ("noimage.jpg");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class=" form-group">
+
+    <div>
+        <h2 class="heading">TUTOR PROFILE</h2><br /><br />
+    </div>
+
+    <div class="container" style="grid-gap:1em; width:100%; display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr))">
+        <div style=" text-align:right">
+            <img src="@Url.Content(@photopath)" alt=" @Url.Content(@photopath)" asp-append-version="true" />
+        </div>
+        <div style="height:200px; position:relative; text-align:left">
+           <br /> <h5 style="font-weight:700">Name: @Model.Firstname @Model.Surname</h5><br />
+            <h5 style="font-weight:700">Student Number: @Model.StudNumber</h5><br />
+            <h5 style="font-weight:700">Email: @Model.Email</h5><br />
+            <h5 style="font-weight:700">Field of Study: @Model.fieldOfStudy</h5><br />
+            <h5 style="font-weight:700">Year of Study: @Model.yearOfStudy</h5><br />
+        </div>
+    </div>
+    <div>
+        <table class="table" style="margin:auto; margin-top:3em; column-gap:1em; border:none;
+width: 1000px; table-layout:fixed; overflow-y:auto">
+            <tr style="background:#b200ff; border: solid">
+                <th>MODULE CODE</th>
+                <th>SESSION DAY</th>
+                <th>TIME</th>
+                <th>SESSION TYPE</th>
+                <th>BOOK</th>
+            </tr>
+            @foreach (Tutor_Connect.Models.Slot s in @ViewBag.slots)
+            {
+                <tr style="border-collapse:collapse; border:1px; text-align:center; background:#CFD8DC">
+                    <td>@s.moduleCode</td>
+                    <td>@s.date</td>
+                    <td>@s.startTime - @s.endTime</td>
+                    <td>@s.TypeOfSlot</td>
+                    <td><span type="button"value="Book" style="background-color: #1C9BE8; width: 100%; border-color: #CFD8DC;color: white;">
+                      @Html.ActionLink("Book", "NotificationView", new { id = int.Parse(Model.StudNumber) }, new{
+                     style = "text-decoration:none;text-align:center; color:white"})
+                      </span>
+                        </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="form-group" style="margin-top:15px; margin-left:500px; margin-top:50px">
+        <span class="btn-register" style="width:150px; text-align:center; font-weight:700">
+            @Html.ActionLink("View Reviews", "ViewReviews",new { id = int.Parse(Model.StudNumber)}, new{style = "text-decoration:none;text-align:center; color:white",
+           @class = "btn-register"})
+        </span>
+        <span class="btn-register" style="width: 150px; text-align: center; font-weight: 700">
+            @Html.ActionLink("   Review Tutor ", "makeReviewTutor",new { id = int.Parse(Model.StudNumber)}, new {  style = "text-decoration:none;text-align:center; color:white",
+           @class = "btn-register"})
+        </span>
+    </div>
+</div>

@@ -40,8 +40,45 @@
     </div>
 
     <p>
+
         @Html.ActionLink("Edit Personal information", "Edit", "Student")
+
+        @if (Session["isTutor"] != null)
+        {
+            @Html.ActionLink("Add New Slot", "AddSlot", new { id = int.Parse(Model.StudNumber) })
+        }
+
+
     </p>
+
+    @if (Session["isTutor"] != null)
+    {
+        <table class="table" style="margin:auto; column-gap:1em; border:none; width: 1000px; table-layout:fixed; overflow-y:auto">
+            <tr style="background:#1C9BE8; border: solid; color:white">
+                <th>MODULE CODE</th>
+                <th>SESSION DAY</th>
+                <th>TIME</th>
+                <th>SESSION TYPE</th>
+                <th></th>
+            </tr>
+            @foreach (Tutor_Connect.Models.Slot s in @ViewBag.slots)
+            {
+                <tr style="border-collapse:collapse; border:1px; text-align:center; background:#CFD8DC;font-weight:600; margin: 12px;">
+                    <td>@s.moduleCode</td>
+                    <td>@s.date</td>
+                    <td>@s.startTime - @s.endTime</td>
+                    <td>@s.TypeOfSlot</td>
+                    <td>
+                      @Html.ActionLink("update", "UpdateSlots", new { id = s.slotId }, new{
+                     style = "background-color: #1C9BE8; width: 350px; border-color: #CFD8DC;color: white; font-weight:600; border-radius:2px; text-decoration:none;"
+                        })
+                    </td>
+                    @*<td><input type="button" value="Update" style="background-color: #1C9BE8; width: 100px; border-color: #CFD8DC;color: white; font-weight:600; border-radius:15px" /></td>*@
+                </tr>
+            }
+        </table>
+    }
+
 
 </div>
 

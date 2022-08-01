@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Tutor_Connect.Models.Applicant>
+
+
+@{
+    ViewBag.Title = "ListTutors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="heading">LIST TUTOR APPLICANTS</h2>
+<dv>
+
+
+    <table class="table" style=" margin:auto; margin-top:3em; column-gap:3em; border:none; width :1000px;
+       table-layout:fixed;overflow-y:auto ">
+        <tr style="background: #1C9BE8; border: solid">
+            <th> STUDENT NUMBER</th>
+            <th>APPLICATION DATE </th>
+            <th>MODULE CODE</th>
+
+            <th></th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr style="border-collapse: collapse; border: 1px; margin-top: 3em; font-size: 14px; width: 1000px;text-align:center; background: #CFD8DC">
+                <td>
+                    @Html.DisplayFor(modelItem => item.studNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.applicationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.moduleCode)
+                </td>
+                <td>
+                    <!--<div class="form-group">-->
+                    @*@using (Html.BeginForm("",""))
+                        {
+                            <input type="submit" value="Verify Applicant" class="btn-register" />
+                        }*@
+
+
+                    @*@using (Html.BeginForm("verify", "Home", FormMethod.Get))
+                                {
+
+                             <a href="@Url.Action("verify","Home",new { id = item.StudNumber })">verify student</a>
+
+                        }*@
+                    @Html.ActionLink("verify", "ApproveTutor", new { id = item.studNumber }, new
+
+                  {
+                       style = "background-color: #1C9BE8; width: 800px; border-color: #CFD8DC;color: white; font-weight:600; border-radius:2px; text-decoration:none;"
+                   })
+
+                </td>
+            </tr>
+
+        }
+
+
+    </table>
+
+</dv>

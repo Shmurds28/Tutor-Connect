@@ -1,0 +1,23 @@
+﻿@model Tutor_Connect.Models.Student
+
+@{
+    ViewBag.Title = "NotificationView";
+    string fail = (string)ViewData["Fail"];
+    string success = (string)ViewData["Success"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Slot booking for the following tutor: @Model.Firstname @Model.Surname </h2>
+
+<div class="options-link">
+    <p style="color:red; font-weight:700">
+        @fail
+    </p>
+    <p style="color:green; font-weight:700">
+        @success 
+    </p>
+</div> <br /><br />
+
+<div>
+    @Html.ActionLink("Back To Tutor Profile", "ViewTutorProfile", new { id = int.Parse(Model.StudNumber)})
+</div>

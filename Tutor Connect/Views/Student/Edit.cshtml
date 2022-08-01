@@ -116,14 +116,11 @@
                 <input type="submit" value="Update" class="btn-register" />
                 @using (Html.BeginForm("Profile", "User", FormMethod.Get))
                 {
-                  <input type="submit" value="Cancel" class="btn-cancel" />
+                    <input type="button" value="Cancel" class="btn-cancel" onclick="location.href='@Url.Action("Profile","User")';" />
+                    @*<input type="button" value="Cancel" onclick="location.href='@Url.Action("Profile","User")';" />*@
                 }
 
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

@@ -1,0 +1,45 @@
+﻿@model Tutor_Connect.Models.Review
+
+@{
+    ViewBag.Title = "ViewReviews";
+    var photopath = "~/Content/images/" + ("noimage.jpg");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="heading">View Reviews - @ViewBag.tutorName @ViewBag.tutorSurname</h2><br /><br />
+
+
+<div>
+    @foreach (Tutor_Connect.Models.Review r in @ViewBag.reviewList)
+    {
+        foreach (Tutor_Connect.Models.Student s in @ViewBag.studentList)
+        {
+            if (r.studNumber == s.StudNumber)
+            {
+                <div class="container" style="grid-gap:1em; width:100%; display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr))">
+                    <div style=" text-align:right">
+                        <img style="width:150px; height:150px; border-radius:50%" src="@Url.Content(@photopath)" alt=" @Url.Content(@photopath)" asp-append-version="true" />
+                    </div>
+                    <div style="height:200px; position:relative; text-align:left">
+                        <h5 style="font-weight: 700 !important; font-family: Arial; font-size:14px">@s.Firstname @s.Surname </h5>
+                        <h5 style="font-size:11px;color:darkgray">@r.Date</h5>
+                        <h5>@r.review1</h5>
+                    </div>
+                </div>
+            }
+        }
+    }
+
+     <div class="form-group" style="margin-top:15px; margin-left:700px; margin-top:50px">
+         @if(Model == null)
+            {
+               <p style="font-weight:700">No reviews are available for this Tutor.</p>
+            }
+            else { 
+        <span class="btn-register" style="width:150px; font-weight:700; text-align:right">      
+            @Html.ActionLink("Back", "ViewTutorProfile", new { id = Model.tutorId }, new { style = "text-decoration:none; text-align:right; color:white",
+           @class = "btn-register" })
+        </span>
+            }
+    </div><br /><br /><br /><br />
+
+</div>

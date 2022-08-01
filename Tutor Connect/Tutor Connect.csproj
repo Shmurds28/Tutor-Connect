@@ -1736,12 +1736,14 @@
     <Content Include="Content\fontawesome-free-5.13.1-web\webfonts\fa-brands-400.svg" />
     <Content Include="Content\fontawesome-free-5.13.1-web\webfonts\fa-regular-400.svg" />
     <Content Include="Content\fontawesome-free-5.13.1-web\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\images\noimage.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TutorController.cs" />
@@ -1755,7 +1757,6 @@
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Module.cs" />
-    <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\Slot.cs" />
     <Compile Include="Models\Student.cs" />
@@ -1826,13 +1827,30 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Student\Register.cshtml" />
-    <Content Include="Views\Tutor\Apply.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Profile.cshtml" />
-    <Content Include="Views\Tutor\Index.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Admin\AddDepartment.cshtml" />
+    <Content Include="Views\User\UpdateSlots.cshtml" />
+    <Content Include="Views\User\Apply.cshtml" />
+    <Content Include="Views\Tutor\ViewTutorProfile.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\ListTutors.cshtml" />
+    <Content Include="Views\Admin\ApproveTutor.cshtml" />
+    <Content Include="Views\User\AddSlot.cshtml" />
+    <Content Include="Views\Tutor\ViewReviews.cshtml" />
+    <Content Include="Views\Tutor\ListOfTutors.cshtml" />
+    <Content Include="Views\Tutor\makeReviewTutor.cshtml" />
+    <Content Include="Views\Tutor\Index.cshtml" />
+    <Content Include="Views\Tutor\NotificationView.cshtml" />
+    <Content Include="Views\User\view.cshtml" />
+    <Content Include="Views\User\ForgotPassword.cshtml" />
+    <Content Include="Views\User\passwordSent.cshtml" />
+    <Content Include="Views\Admin\AddModule.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Report.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

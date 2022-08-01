@@ -11,16 +11,59 @@
 </head>
 <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        @Html.ActionLink("View Profile", "Profile", "User")
+    <div class="navbar">
+        <ul>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+            @if (Session["isAdmin"] != null)
+            {
+                <li>@Html.ActionLink("Add Module", "AddModule", "Admin")</li>
+                <li>@Html.ActionLink("Add Department", "AddDepartment", "Admin")</li>
+                <li>@Html.ActionLink("Applicants", "ListTutors", "Admin")</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Tutors", "Index", "Tutor")</li>
+                <li>@Html.ActionLink("Apply", "Apply", "User")</li>
+            }
+
+
+
+            @if (Session["logged"] != null)
+            {
+                if(Session["isAdmin"] == null)
+                {
+                     <li>@Html.ActionLink("Profile", "Profile", "User")</li>
+                }
+                
+                <li>@Html.ActionLink("Logout", "Logout", "User")</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Register", "Register", "Student")</li>
+                <li>@Html.ActionLink("Login", "Login", "User")</li>
+            }
+
+
+
+
+        </ul>
+
+
     </div>
 
     <div class="container body-content">
         @RenderBody()
-        @*<hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>*@
+        <footer class="footer bg-dark">
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+            </div>
+            <hr />
+            <p>Copyright &copy; 2021 - Tutor Connect</p>
+        </footer>
     </div>
 
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>

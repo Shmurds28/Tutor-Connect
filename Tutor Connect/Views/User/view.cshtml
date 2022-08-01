@@ -1,0 +1,21 @@
+﻿@model Tutor_Connect.Models.Student
+
+@{
+    ViewBag.Title = "view";
+   string success = (string)ViewData["Success"];
+    string invalid = (string)ViewData["Fail"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Application Status</h2>
+<br />
+<br />
+
+<div>
+    <p style="color:green; font-weight:700">
+        @success
+    </p>
+    <p style="color:red; font-weight:700">
+        @invalid
+    </p>
+</div>

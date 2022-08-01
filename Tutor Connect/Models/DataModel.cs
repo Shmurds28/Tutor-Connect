@@ -17,7 +17,6 @@ namespace Tutor_Connect.Models
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Module> Modules { get; set; }
-        public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<Slot> Slots { get; set; }
         public virtual DbSet<Student> Students { get; set; }
@@ -54,14 +53,6 @@ namespace Tutor_Connect.Models
             modelBuilder.Entity<Module>()
                 .Property(e => e.moduleCode)
                 .IsFixedLength();
-
-            modelBuilder.Entity<Payment>()
-                .Property(e => e.studNumber)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Payment>()
-                .Property(e => e.amount)
-                .HasPrecision(19, 4);
 
             modelBuilder.Entity<Review>()
                 .Property(e => e.studNumber)

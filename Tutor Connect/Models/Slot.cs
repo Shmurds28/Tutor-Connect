@@ -8,20 +8,29 @@ namespace Tutor_Connect.Models
 
     public partial class Slot
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+
         public int slotId { get; set; }
-
-        public DateTime startTime { get; set; }
-
-        public DateTime endTime { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime date { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string TypeOfSlot { get; set; }
+        [Display(Name = "Module: ")]
+        public string moduleCode { get; set; }
+        [Display(Name = "Time: ")]
+        public TimeSpan startTime { get; set; }
 
-        public int? tutorId { get; set; }
+        public TimeSpan endTime { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        [Display(Name = "Session Day: ")]
+        public string date { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        [Display(Name = "Session Type: ")]
+        public string TypeOfSlot { get; set; }
+        [Display(Name = "Student Number: ")]
+        public string tutorId { get; set; }
     }
 }
+

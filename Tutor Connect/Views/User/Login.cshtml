@@ -17,7 +17,7 @@
         <div class="form-group">
             @*@Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control", placeholder = " Enter student number" } })
+                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control", placeholder = " Enter student/staff number" } })
                 @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -36,7 +36,7 @@
                 <p>
 
                     @Html.ActionLink("Create Account", "Register", "Student")
-                    @Html.ActionLink("Forgot password", "Register", "Student")
+                    @Html.ActionLink("Forgot password", "ForgotPassword", "User")
                 </p>
             </div>
         </div>
